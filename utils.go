@@ -18,3 +18,30 @@ func reverseInt(x interface{}) (int, error) {
 	}
 	return result, nil
 }
+
+func containsDuplicate(nums []int) bool {
+	set := make(map[int]struct{})
+	for _, v := range nums {
+		if _, ok := set[v]; ok {
+			return true
+		} else {
+			set[v] = struct{}{}
+		}
+	}
+	return false
+}
+
+func isPalindrome(x int) bool {
+	if x < 0 || (x%10 == 0 && x != 0) {
+		return false
+	}
+
+	var revertedNum int
+	for x > revertedNum {
+		last := x % 10
+		x /= 10
+		revertedNum = revertedNum*10 + last
+	}
+
+	return x == revertedNum || x == revertedNum/10
+}
