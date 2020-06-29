@@ -1,6 +1,8 @@
 package main
 
-import "errors"
+import (
+	"errors"
+)
 
 func reverseInt(x interface{}) (int, error) {
 	y, ok := x.(int)
@@ -44,4 +46,19 @@ func isPalindrome(x int) bool {
 	}
 
 	return x == revertedNum || x == revertedNum/10
+}
+
+func fib(n int) int {
+	if n < 2 {
+		return n
+	}
+
+	return fib(n-1) + fib(n-2)
+}
+
+func makeSlice(l int) {
+	a := make([]int, 0)
+	for i := 0; i < l; i++ {
+		a = append(a, i)
+	}
 }
