@@ -1,10 +1,10 @@
-package main
+package utils
 
 import (
 	"errors"
 )
 
-func reverseInt(x interface{}) (int, error) {
+func ReverseInt(x interface{}) (int, error) {
 	y, ok := x.(int)
 	if !ok {
 		return 0, errors.New("not int")
@@ -21,7 +21,7 @@ func reverseInt(x interface{}) (int, error) {
 	return result, nil
 }
 
-func containsDuplicate(nums []int) bool {
+func ContainsDuplicate(nums []int) bool {
 	set := make(map[int]struct{})
 	for _, v := range nums {
 		if _, ok := set[v]; ok {
@@ -33,7 +33,7 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 
-func isPalindrome(x int) bool {
+func IsPalindrome(x int) bool {
 	if x < 0 || (x%10 == 0 && x != 0) {
 		return false
 	}
@@ -48,17 +48,25 @@ func isPalindrome(x int) bool {
 	return x == revertedNum || x == revertedNum/10
 }
 
-func fib(n int) int {
+func Fib(n int) int {
 	if n < 2 {
 		return n
 	}
 
-	return fib(n-1) + fib(n-2)
+	return Fib(n-1) + Fib(n-2)
 }
 
-func makeSlice(l int) {
+func MakeSlice(l int) {
 	a := make([]int, 0)
 	for i := 0; i < l; i++ {
 		a = append(a, i)
 	}
+}
+
+func Pad(s string, length int, template string) string {
+	for len(s) < length {
+		s += template
+	}
+
+	return s
 }
