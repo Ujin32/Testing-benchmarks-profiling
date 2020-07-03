@@ -10,18 +10,20 @@ import (
 
 const url = "https://jsonplaceholder.typicode.com"
 
-type Post interface {
-	GetList() ([]PostData, error)
+// Client - interface for post client
+type Client interface {
+	GetList() ([]Post, error)
 }
 
 type postClient struct{}
 
-func NewPostClient() Post {
+// NewClient - create client
+func NewClient() Client {
 	return &postClient{}
 }
 
-func (c *postClient) GetList() ([]PostData, error) {
-	client := http.Client{Timeout: time.Second * 2}
+func (c *postClient) GetList() ([]Post, error) {
+	client := http.Client{Timeout: time.Second * 5}
 
 	res, err := client.Get(url + "/posts")
 	if err != nil {
@@ -34,7 +36,7 @@ func (c *postClient) GetList() ([]PostData, error) {
 		return nil, fmt.Errorf("failed to read body: %w", err)
 	}
 
-	var posts []PostData
+	var posts []Post
 	if err := json.Unmarshal(body, &posts); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal []Post: %w", err)
 	}
@@ -42,7 +44,8 @@ func (c *postClient) GetList() ([]PostData, error) {
 	return posts, nil
 }
 
-type PostData struct {
+// Post - struct for marshal/unmarshal get post json data
+type Post struct {
 	ID     int
 	Title  string
 	Body   string
