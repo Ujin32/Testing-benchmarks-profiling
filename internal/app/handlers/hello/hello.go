@@ -13,9 +13,9 @@ type Response struct {
 
 // Handler - hello handler
 func Handler(w http.ResponseWriter, r *http.Request) {
-	resp := Response{Msgs: make([]string, 10)}
+	resp := Response{Msgs: make([]string, 0, 1000)}
 
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 3000; i++ {
 		msg := util.Pad("Hello, ", i, " World!")
 		resp.Msgs = append(resp.Msgs, msg)
 	}

@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", hello.Handler)
+	http.HandleFunc("/hello", hello.Handler)
 	http.ListenAndServe(":9090", nil)
 }
