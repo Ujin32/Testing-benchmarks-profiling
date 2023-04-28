@@ -1,0 +1,16 @@
+﻿goos: windows
+goarch: amd64
+pkg: module06/internal/pkg/util
+cpu: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+BenchmarkFib-8         	     171	  67717240 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFib-8         	     186	  94830289 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFib-8         	     100	 119144384 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFib-8         	     100	 123777991 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFib-8         	     168	  89071358 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMakeSlice-8   	     410	  27241628 ns/op	128431404 B/op	      43 allocs/op
+BenchmarkMakeSlice-8   	     406	  28696978 ns/op	128431398 B/op	      43 allocs/op
+BenchmarkMakeSlice-8   	     464	  26378960 ns/op	128431401 B/op	      43 allocs/op
+BenchmarkMakeSlice-8   	     380	  27106468 ns/op	128431403 B/op	      43 allocs/op
+BenchmarkMakeSlice-8   	     429	  27887561 ns/op	128431410 B/op	      43 allocs/op
+PASS
+ok  	module06/internal/pkg/util	193.630s

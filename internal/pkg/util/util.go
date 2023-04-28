@@ -56,16 +56,22 @@ func IsPalindrome(x int) bool {
 
 // Fib - calculate fibanachi num. For example 10 -> 34
 func Fib(n int) int {
-	if n < 2 {
+	if n <= 1 {
 		return n
 	}
 
-	return Fib(n-1) + Fib(n-2)
+	fib1 := 0
+	fib2 := 1
+	for i := 2; i <= n; i++ {
+		fib1, fib2 = fib2, fib1+fib2
+	}
+
+	return fib2
 }
 
 // MakeSlice - make new slice with size and put zero for all cell. For example 3 -> [0, 0, 0]
 func MakeSlice(l int) []int {
-	a := make([]int, 0)
+	a := make([]int, 0, l)
 	for i := 0; i < l; i++ {
 		a = append(a, i)
 	}
